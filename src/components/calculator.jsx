@@ -11,10 +11,18 @@ const Calculator = () => {
   const decide = () => {
     setResult(eval(result));
   };
+  const deleteLastCharacter = () => {
+    setResult(result.slice(0, -1));
+  };
   return (
     <div className={s.container}>
       <div className={s.root}>
-        <div className={s.result}>{result}</div>
+        <div className={s.result}>
+          <div className={s.value}>{result}</div>
+          <div className={s.delete}>
+            <button onClick={deleteLastCharacter}>Delete</button>
+          </div>
+        </div>
         <div className={s.buttons}>
           <button value="7" onClick={setValue}>
             7
@@ -62,6 +70,7 @@ const Calculator = () => {
             -
           </button>
         </div>
+        <h1>CALCULATOR</h1>
       </div>
     </div>
   );
